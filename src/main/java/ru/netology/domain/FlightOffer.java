@@ -67,8 +67,8 @@ public class FlightOffer implements Comparable<FlightOffer> {
     }
 
     @Override
-    public int compareTo(FlightOffer pr) {
-        return this.price - pr.price;
+    public int compareTo(FlightOffer o) {
+        return this.price - o.price;
     }
 
     @Override
@@ -76,7 +76,10 @@ public class FlightOffer implements Comparable<FlightOffer> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         FlightOffer that = (FlightOffer) o;
-        return id == that.id && price == that.price && timeFlight == that.timeFlight && Objects.equals(airportDeparture, that.airportDeparture) && Objects.equals(airportArrival, that.airportArrival);
+        return id == that.id && price == that.price &&
+                timeFlight == that.timeFlight &&
+                Objects.equals(airportDeparture, that.airportDeparture) &&
+                Objects.equals(airportArrival, that.airportArrival);
     }
 
     @Override

@@ -2,22 +2,21 @@ package ru.netology.repository;
 
 import ru.netology.domain.FlightOffer;
 
-public class RepositoryFlightOffer extends FlightOffer {
-    private RepositoryFlightOffer[] items = new RepositoryFlightOffer[0];
+public class RepositoryFlightOffer {
+    private FlightOffer[] items = new FlightOffer[0];
 
-    public void save(RepositoryFlightOffer item) {
+    public void save(FlightOffer item) {
         int length = items.length + 1;
-        RepositoryFlightOffer[] tmp = new RepositoryFlightOffer[length];
+        FlightOffer[] tmp = new FlightOffer[length];
         System.arraycopy(items, 0, tmp, 0, items.length);
         int lastIndex = tmp.length - 1;
         tmp[lastIndex] = item;
         items = tmp;
     }
 
-    public RepositoryFlightOffer[] findAll() {
+    public FlightOffer[] findAll() {
         return items;
     }
-
 
 
 }
