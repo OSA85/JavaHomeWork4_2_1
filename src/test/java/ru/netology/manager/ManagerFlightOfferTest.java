@@ -56,7 +56,7 @@ class ManagerFlightOfferTest {
         FlightOffer[] expected = new FlightOffer[] {};
         FlightOffer[] actual = manager.findFlightOffer("GSV","GSV");
 
-        Arrays.sort(actual);
+      //  Arrays.sort(actual);
 
         assertArrayEquals(expected, actual);
     }
@@ -66,8 +66,7 @@ class ManagerFlightOfferTest {
         FlightOffer[] expected = new FlightOffer[] {item8};
         FlightOffer[] actual = manager.findFlightOffer("DME","VVO");
 
-        Arrays.sort(actual);
-
+//        Arrays.sort(actual);
         assertArrayEquals(expected, actual);
     }
 
