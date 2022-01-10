@@ -35,40 +35,24 @@ class ManagerFlightOfferTest {
         manager.addFlightOffer(item8);
     }
     @Test
-    public void findAllFlightOffer() {
+    public void findAllFlightOffer() { //поиск всех предложений по перелету без сортировки
         FlightOffer[] expected = {item1, item2, item3, item4, item5, item6, item7, item8};
         FlightOffer[] actual = repo.findAll();
 
         assertArrayEquals(expected, actual);
     }
-    @Test
-    public void findAllFlightOfferOnPriceUp() {
-        FlightOffer[] expected = {item1, item4, item2, item5, item6, item7, item3, item8};
-        FlightOffer[] actual = repo.findAll();
-
-        Arrays.sort(actual);
-
-        assertArrayEquals(expected, actual);
-    }
-    @Test
-    public void findOnTwoAirport() {
-        FlightOffer[] expected = new FlightOffer[] {item1, item2, item3, item4};
-        FlightOffer[] actual = manager.findFlightOffer("GSV","DME");
-
-        assertArrayEquals(expected, actual);
-    }
 
     @Test
-    public void findOnTwoAirportOnPriceUp() {
+    public void findOnTwoAirportOnPriceUp() {//поиск по двум аэропортам, с сортировкой по цене
         FlightOffer[] expected = new FlightOffer[] {item1, item4, item2, item3};
         FlightOffer[] actual = manager.findFlightOffer("GSV","DME");
 
-        Arrays.sort(actual);
+//        Arrays.sort(actual);
 
         assertArrayEquals(expected, actual);
     }
     @Test
-    public void findOnTwoAirportEmptyListOffer() {
+    public void findOnTwoAirportEmptyListOffer() {//нет таких предложений
         FlightOffer[] expected = new FlightOffer[] {};
         FlightOffer[] actual = manager.findFlightOffer("GSV","GSV");
 
@@ -78,7 +62,7 @@ class ManagerFlightOfferTest {
     }
 
     @Test
-    public void findOnTwoAirportOneInListOffer() {
+    public void findOnTwoAirportOneInListOffer() {//одно предложение по перелёту
         FlightOffer[] expected = new FlightOffer[] {item8};
         FlightOffer[] actual = manager.findFlightOffer("DME","VVO");
 

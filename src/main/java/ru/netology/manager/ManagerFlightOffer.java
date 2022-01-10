@@ -3,6 +3,8 @@ package ru.netology.manager;
 import ru.netology.domain.FlightOffer;
 import ru.netology.repository.RepositoryFlightOffer;
 
+import java.util.Arrays;
+
 public class ManagerFlightOffer {
 
     private RepositoryFlightOffer repo;
@@ -53,6 +55,7 @@ public class ManagerFlightOffer {
                 tmp[lastIndex] = offer;
                 result = tmp;
             }
+            Arrays.sort(result);
         }
         return result;
     }
